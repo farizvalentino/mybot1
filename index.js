@@ -61,6 +61,7 @@ const axios = require("axios")
 const fs = require("fs-extra")
 const util = require('util')
 const got = require("got");
+const xa = require("xfarr-api")
 //const hx = require('hxz-api');
 //const { EmojiAPI } = require("emoji-api")
 //const emoji = new EmojiAPI()
@@ -340,12 +341,6 @@ module.exports = dha = async (dha, mek) => {
         const isWelkom = isGroup ? welkom.includes(from) : false
 		const dfrply = fs.readFileSync(`./media/canss.jpg`)
 		const fake = fs.readFileSync(`./media/canss.jpg`)
-		// Media Menu
-		const idonasi = fs.readFileSync('./mediamenu/donasi.jpg')
-		const icontact = fs.readFileSync('./mediamenu/contact.jpg')
-		const iall = fs.readFileSync('./mediamenu/all.jpg')
-		const isc = fs.readFileSync('./mediamenu/sc.jpg')
-		const iprice = fs.readFileSync('./mediamenu/price.jpg')
 		//F New
 		const floc3 = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "liveLocationMessage": { "caption": `Runtime : ${runtime(process.uptime())}\nBy : ${NamaOwner}`} } }
 ////////////CONST GAME/RANDOM MATH
@@ -1101,6 +1096,7 @@ break
 //// PLISS JANGAN HAPUS CREDITS 🗡️
 //COMMAND NYA BG :)
 case 'command':
+const iall = fs.readFileSync('./mediamenu/all.jpg')
 bangke =`
 ╭━─━─━─≪✠≫─━─━─━
 ├❑ *ADMIN MENU*
@@ -1136,6 +1132,7 @@ bangke =`
 ├❑ *DOWNLOAD MENU*
 │➻ ${prefix}ytmp3 < Link >
 │➻ ${prefix}ytmp4 < Link >
+│➻ ${prefix}playmp3 < Query >
 ╰━─━─━─≪✠≫─━─━─━
 ╭━─━─━─≪✠≫─━─━─━
 ├❑ *TO MENU*
@@ -2170,7 +2167,8 @@ case 'bass':
 					break  
                     case 'admin':  
          	        case 'owner':  
-         	        case 'creator':  
+         	        case 'creator':           	        		
+		            const icontact = fs.readFileSync('./mediamenu/contact.jpg')
                     dha.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: mek})
                     dha.sendMessage(from, icontact, image, {quoted: mek, caption: 'Tuhh Kak Kontak Owner Ku >_<'})
 					break
@@ -2186,6 +2184,7 @@ Jangan Lupa Join Yahh *${pushname}*
 grupinv(gcm)
 break
 case 'script':
+const isc = fs.readFileSync('./mediamenu/sc.jpg')
 mastahb =`*SCRIPT ${NamaBot}*
 
 Script Ori : Yudha 
@@ -2512,6 +2511,7 @@ break
                     N += `ADALAH : *${mekla3}${mekla4}%* 😘`
                     reply(N)
                     break      
+
 
 //////////// SEWA BY YERIKO COPAS?KASIH CREDITS:)
 /////////// ERROR? CHAT ME ON WHATSAPP
